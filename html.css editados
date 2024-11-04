@@ -1,137 +1,520 @@
+document.querySelectorAll('.carousel-container').forEach(carousel => {
+    const cardContainer = carousel.querySelector('.card-container');
+    const leftButton = carousel.querySelector('.carousel-button.left');
+    const rightButton = carousel.querySelector('.carousel-button.right');
+    const scrollAmount = 440; // Quantidade de rolagem em pixels
+
+    // Duplicar o conteúdo dos cards para simular o efeito infinito
+    cardContainer.innerHTML += cardContainer.innerHTML;
+
+    // Função para verificar a posição de rolagem e resetar se necessário
+    function checkScrollPosition() {
+        if (cardContainer.scrollLeft >= cardContainer.scrollWidth / 2) {
+            cardContainer.scrollLeft = 1; // Ajuste leve para evitar corte visível no reset
+        } else if (cardContainer.scrollLeft <= 0) {
+            cardContainer.scrollLeft = cardContainer.scrollWidth / 2 - 1;
+        }
+    }
+
+    // Evento para rolar para a esquerda
+    leftButton.addEventListener('click', function() {
+        cardContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        // Verifica a posição após a rolagem suave
+        setTimeout(checkScrollPosition, 400);
+    });
+
+    // Evento para rolar para a direita
+    rightButton.addEventListener('click', function() {
+        cardContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        // Verifica a posição após a rolagem suave
+        setTimeout(checkScrollPosition, 400);
+    });
+
+    // Verificar a posição de rolagem para garantir o efeito infinito
+    cardContainer.addEventListener('scroll', checkScrollPosition);
+});
+
+
+
+//===================popup=================================
+const button = document.querySelector('button')
+const popup =  document.querySelector('.popup-wrapper')
+
+button.addEventListener('click', () => {
+   popup.style.display = 'block'
+})
+
+popup.addEventListener('click', event => {
+const classNameOfClickedElement = event.target.classList[0]
+const classNames = ['popup-close', 'popup-wrapper','popup-link']
+const shouldClosePopup = classNames.some(className =>
+   className === classNameOfClickedElement)
+
+if (shouldClosePopup) {
+   popup.style.display = 'none'
+}
+})
+//========================pesquisa
+document.querySelector('.search input').addEventListener('input', function(event) {
+    const query = event.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+    });
+});
+.popup-content h2{
+    color: crimson;
+    }
+    .popup-content p{
+        color: black;
+        font-size: 20px;
+    }
+      .popup-wrapper {
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    .popup{
+
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        height: 200px;
+        margin: 10% auto;
+        padding: 20px;
+        background-color: #fff;
+        position: relative;
+        border-radius: 10px;
+        z-index: 1;
+    }
+    .popup a{
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 6px 40px;
+        background: crimson;
+        align-items: center;
+        border-radius: 5px;
+
+    }
+    .popup-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+
+    }
+
+
+    /* Estilização básica */
+    * {
+    
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    /* Estilização do cabeçalho */
+    header {
+        background: linear-gradient(to Bottom, #84C6EB, #ffff);
+        color: white;
+        padding: 20px;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+
+
+    .search {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .search input {
+        padding: 10px;
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    /* Estilização do carrossel */
+    .carousel-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .card-container {
+        display: flex;
+        transition: transform 0.3s ease;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        padding-bottom: 10px; /* Opcional: se desejar um espaçamento abaixo dos cards */
+    }
+
+
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        width: 200px;
+        margin: 0 10px;
+        text-align: center;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+    }
+
+    .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .card p {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    .card button {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Botões de navegação */
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .carousel-button.left {
+        left: 10px;
+    }
+
+    .carousel-button.right {
+        right: 10px;
+    }
+
+    /* Estilização do rodapé */
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 50px;
+    }
+    .exclusive {
+        display: flex;
+        flex-direction: column; /* Alinha os itens na vertical */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+    }
+    
+    .exclusive input {
+        margin-bottom: 10px; /* Espaço entre o input e o botão */
+        width: 100%; /* Faz o input ocupar toda a largura disponível */
+    }
+    
+    .exclusive button {
+        background-color: rgb(241, 23, 23);
+        color: rgb(243, 243, 243);
+        border: none;
+        border-radius: 2px;
+        padding: 10px 20px; /* Ajusta o padding do botão */
+        cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+        transition: background-color 0.3s ease;
+    }
+    
+    .exclusive button:hover {
+        background-color: rgb(200, 20, 20); /* Cor ao passar o mouse */
+    }
+    
+    
+    .exclusive p {
+        padding-left: 0;
+    }
+    .footer-content h3 {
+        margin-bottom: 10px;
+    }
+
+    .footer-content a {
+        color: #aaa;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .footer-content input {
+        padding: 9px;
+        margin-right: 5px;
+        border-radius: 5px;
+    }
+
+    footer img {
+        width: 100px;
+    }
+
+    footer p {
+        
+        margin-top: 10px;
+        font-size: 12px;
+        color: #aaa;
+    }
+    .store-links{
+
+    }
+   hr{
+    height: 1px;
+    margin: 0;
+    background-color:#ffffff00;
+    border: none;
+   }
+    .copyright{
+        margin: 0;
+        background-color: #333333;
+        color: #ffffffa1;
+        text-align: center;
+    }
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitality - Doação de Remédios</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Vitality - Doações</title>
+    <link rel="stylesheet" href="tela2.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="imgs/Logo.png" alt="Vitality Logo">
+    <div class="popup-wrapper">
+        <div class="popup">
+            <div class="popup-close">x</div>
+
+            <div class="popup-content">
+              <h2>Atenção:</h2>
+              <p>
+                Apenas medicamentos sem receita podem ser doados</p>
+              <a class="popup-link" href="#">Fechar</a>
+          </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Doe Agora</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Clínica</a></li>
-                <li><a href="#">Médicos</a></li>
-                <li><a href="#">Suporte</a></li>
-            </ul>
-        </nav>
-        <div class="auth-buttons">
-            <a href="#" class="login">Login</a>
-            <a href="#" class="cadastro">Cadastre-se</a>
+      </div>
+
+    <header>
+        <div class="header-content">
+            <img src="imgs/Logo.png" alt="Vitality" class="logo">
+            <nav>
+                <a href="#">Doe Agora</a>
+                <a href="#">Serviços</a>
+                <a href="#">Clínica</a>
+                <a href="#">Médicos</a>
+                <a href="#">Chat</a>
+                <a href="#">Suporte</a>
+            </nav>
+        </div>
+
+
+        <div class="search">
+            <input type="text" placeholder="Pesquise por Remédio">
         </div>
     </header>
 
+    <main>
+        <!-- Seção Mais Procurados -->
+        <section class="most-searched">
+            <h2>Mais Procurados (4)</h2>
+            <div class="carousel-container">
+                <button class="carousel-button left">&lt;</button>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="/imgs/remedios/fumasil.png" alt="Fumasil">
+                        <p>Fumasil - uso Adulto contém 60</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/rivotril.png" alt="Rivotril 80 Comprimidos">
+                        <p>Rivotril - 80 comprimidos</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/genérico red.png" alt="Metiliciclina">
+                        <p>Metiliciclina - G92</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/cimegripecomp.png" alt="Cimegripe">
+                        <p>Cimegripe</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/cimegripecomp.png" alt="Cimegripe">
+                        <p>Cimegripe</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/BuscoFem.webp" alt="Cimegripe">
+                        <p>BuscoFem</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/fralda.webp" alt="Patromide de Sódio">
+                        <p>fraldas Huggies</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/doralgina.webp" alt="Patromide de Sódio">
+                        <p>doralgina 60comprimidos</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <!-- Adicione mais cards conforme necessário -->
+                </div>
+                <button class="carousel-button right">&gt;</button>
+            </div>
+        </section>
+        <!-- Seção Doações -->
+         <section class="donations">
+            <h2>Doações (4)</h2>
+            <div class="carousel-container">
+                <button class="carousel-button left">&lt;</button>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="/imgs/remedios/fumasil.png" alt="Fumasil">
+                        <p>Fumasil 300mg 60 Comprimidos</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/rivotril.png" alt="Rivotril">
+                        <p>Rivotril</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/genericoblue.png" alt="Metilbenzo">
+                        <p>Metilbenzo</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/cimegripe.webp" alt="Patromide de Sódio">
+                        <p>Cimegripe - 200mg</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/genericoblue.png" alt="Patromide de Sódio">
+                        <p>Patromide de Sódio</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/genérico red.png" alt="Patromide de Sódio">
+                        <p>Patromide de Sódio</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/Neolefrin.webp" alt="Patromide de Sódio">
+                        <p>Neolefrin </p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/genérico red.png"Patromide de Sódio">
+                        <p>Patromide de Sódio</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/doralgina.webp" alt="Patromide de Sódio">
+                        <p>doralgina 60comprimidos</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <div class="card">
+                        <img src="/imgs/remedios/fralda.webp" alt="Patromide de Sódio">
+                        <p>fraldas Huggies</p>
+                        <button>Eu Quero</button>
+                    </div>
+                    <!-- Adicione mais cards conforme necessário -->
+                </div>
+                <button class="carousel-button right">&gt;</button>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="exclusive">
+                <h3>Exclusivo</h3>
+                <p>Inscreva-se para ganhar 20% de desconto no frete</p>
+                <input type="email" placeholder="entre com seu melhor email">
+                <button>Inscrever</button>
+            </div>
+            <div class="support">
+                <h3>Suporte</h3>
+                <p>111 Bijoy sarani, Dhaka, Bangladesh</p>
+                <p>Email: exclusive@gmail.com</p>
+                <p>Telefone: +88015-88888-9999</p>
+            </div>
+            <div class="links">
+                <h3>Links</h3>
+                <p><a href="#">Políticas de Privacidade</a></p>
+                <p><a href="#">Termos de Uso</a></p>
+                <p><a href="#">FAQ</a></p>
+                <p><a href="#">Contatos</a></p>
+            </div>
+            <div class="app-download">
+                <h3>Download App</h3>
+                <div class="download-container">
+                    <img src="Captura de tela 2024-11-04 103629.png" alt="QR Code" class="qr-code">
+                    <div class="store-links">
+                        <a href="#"><img src="GooglePlay.png" alt="Google Play"></a>
+                        <a href="#"><img src="GooglePlay.png" alt="App Store"></a>
+                    </div>
+                </div>
+        </div>
+        
+    </footer>
+    <hr>
+    <p class="copyright">© Copyright 2024. All right reserved</p>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
-/* Reset de estilos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Separa a logo da navegação */
-    background-color: #f0f4fa;
-    padding: 20px 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-    width: 150px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 18px;
-    transition: color 0.3s ease; /* Adicionada transição suave */
-}
-
-nav ul li a:hover {
-    color: #007bff;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.auth-buttons a {
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Adicionada transição suave */
-}
-
-.login {
-    color: #007bff;
-    border: 2px solid #007bff;
-}
-
-.cadastro {
-    background-color: #007bff;
-    color: white;
-}
-
-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 100px;
-    background: linear-gradient(180deg, #f0f4fa, #fff);
-}
-
-/* Estilos para o footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f0f4fa;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Media Queries para responsividade */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-}
