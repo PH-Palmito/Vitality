@@ -34,6 +34,8 @@ document.querySelectorAll('.carousel-container').forEach(carousel => {
     cardContainer.addEventListener('scroll', checkScrollPosition);
 });
 
+
+
 //===================popup=================================
 const button = document.querySelector('button')
 const popup =  document.querySelector('.popup-wrapper')
@@ -52,3 +54,13 @@ if (shouldClosePopup) {
    popup.style.display = 'none'
 }
 })
+//========================pesquisa
+document.querySelector('.search input').addEventListener('input', function(event) {
+    const query = event.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+    });
+});
