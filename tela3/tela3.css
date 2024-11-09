@@ -59,7 +59,7 @@
         font-family: Arial, sans-serif;
         color: #333;
         background-color: #aba6a665;
-        
+
     }
 
     /* Estilização do cabeçalho */
@@ -150,6 +150,7 @@
     }
 
     .card img {
+        text-align: center;
         width: 100px;
         height: 100px;
         object-fit: cover;
@@ -163,11 +164,36 @@
     .card button {
         background-color: black;
         color: white;
-        padding: 10px;
+        padding: 10px 30px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
     }
+    .card h5{
+       margin: 0;
+        color: rgba(93, 93, 100, 0.836);
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px; /* Ajuste o espaço entre o número e as estrelas */
+        margin: 0;
+    }
+   .rating h6{
+    color: rgba(93, 93, 100, 0.649);
+    height: 20px;
+   }
+    .star {
+        color: #FFD700;
+        font-size: 24px;
+        height: 50px;
+    }
+
+
+
+
 
     /* Botões de navegação */
     .carousel-button {
