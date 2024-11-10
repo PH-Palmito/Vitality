@@ -291,14 +291,14 @@
   hr{
     height: 1px;
     margin: 0;
-    background-color:#ffffff00;
+    background-color:#a31d1d00;
     border: none;
    }
    .store-links{
     width: 0px;
    }
 .copyright{
-        margin: 0;
+
         background-color: #333333;
         color: #ffffffa1;
         text-align: center;

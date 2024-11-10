@@ -188,6 +188,28 @@
     .carousel-button.right {
         right: 10px;
     }
+    .card h5{
+        margin: 0;
+         color: rgba(93, 93, 100, 0.836);
+     }
+
+     .rating {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 4px;
+         margin: 0;
+     }
+    .rating h6{
+     color: rgba(93, 93, 100, 0.649);
+     height: 20px;
+     margin: 0;
+    }
+     .star {
+         color: #FFD700;
+         font-size: 24px;
+         height: 50px;
+     }
 
     /* Estilização do rodapé */
     footer {
