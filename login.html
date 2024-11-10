@@ -1,70 +1,63 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitality Hub - Cadastro</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login - Vitality Hub</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
+
+    <!-- Cabeçalho com logo e  -->
+
     <header>
-    <div class="header-content">
-        <img src="/imgs/Logo.png" alt="Vitality" class="logo">
-        <nav>
-            <a href="#">Doe Agora</a>
-            <a href="#">Serviços</a>
-            <a href="#">Clínica</a>
-            <a href="#">Médicos</a>
-            <a href="#">Chat</a>
-            <a href="#">Suporte</a>
-        </nav>
-    </div>
-        </header>
-
-        <div class="signup-form">
-            <h1 class="title">Vitality Hub.</h1>
-            <h2 class="subtitle">Cadastre-se</h2>
-            <form>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nome completo:</label>
-                        <input type="text" id="name" placeholder="Coloque seu nome..">
-                    </div>
-                    <div class="form-group">
-                        <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" placeholder="Coloque seu CPF..">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" placeholder="info@xyz.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Número de telefone:</label>
-                        <input type="tel" id="phone" placeholder="+55 71 9192-6000">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="password">Sua senha:</label>
-                        <input type="password" id="password" placeholder="xxxxxxxxx">
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm-password">Confirme sua senha:</label>
-                        <input type="password" id="confirm-password" placeholder="xxxxxxxxx">
-                    </div>
-                </div>
-
-                <button type="button" class="clinic-button">Sou Médico ou Clínica</button>
-                <button type="submit" class="submit-button">           Cadastrar</button>
-            </form>
+        <div class="header-content">
+            <a href="/page1/home.html">
+                <img src="/imgs/Logo.png" alt="Vitality" class="logo">
+                </a>
+            <nav>
+                <a href="#">Serviços</a>
+                <a href="/tela4/clinicas.html">Clínica</a>
+                <a href="/tela3/medicos.html">Médicos</a>
+                <a href="#">Chat</a>
+                <a href="#">Suporte</a>
+            </nav>
         </div>
+            </header>
+
+    <!-- Tela de Login -->
+    <div class="login-wrapper">
+        <div class="login-box">
+            <h1 class="title">Bem Vindo!</h1>
+            <h2 class="subtitle">Realize o login </h2>
 
 
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Digite seu Melhor email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Lembre-se de mim</label>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <p class="error-message" style="display:none;">Preencha corretamente os campos.</p>
+                </form>
+                <p class="register-link">Ainda não tem conta? <a href="#">Registre-se</a></p>
+                <p class="forgot-password"><a href="#">Esqueceu a senha?</a></p>
+
+        </div>
     </div>
+
+    <!-- Rodapé -->
     <footer>
         <div class="footer-content">
             <div class="exclusive">
@@ -95,7 +88,7 @@
         </div>
 
     </footer>
-    <hr>
-    <p class="copyright">© Copyright 2024. All right reserved</p>
+
+    <script src="script.js"></script>
 </body>
 </html>
