@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitality - Doação de Remédios</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Vitality - Doe Remédios</title>
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
     <header>
@@ -12,11 +12,10 @@
             <img src="/imgs/Logo.png" alt="Vitality Logo">
         </div>
         <nav>
-
             <ul>
-                <li><a href="/tela2/remedios.html">Doe_Agora</a></li>
-                <li><a href="/tela2/remedios.html">Remedios</a></li>
-                <li><a href="/tela4/clinicas.html">Clínica</a></li>
+
+                <li><a href="/tela4/clinicas.html">Serviços</a></li>
+                <li><a href="/tela3/medicos.html">Clínica</a></li>
                 <li><a href="/tela3/medicos.html">Médicos</a></li>
                 <li><a href="#">Suporte</a></li>
             </ul>
@@ -28,27 +27,66 @@
     </header>
 
     <main>
+        <!-- Seção Principal -->
         <section class="hero">
-            <h1>Doe Remédios, Salve Vidas!
-            Faça a diferença na saúde de quem precisa.</h1>
-            <p>Tem medicamentos que não usa mais? Doe agora e ajude a levar esperança a quem não tem acesso a tratamentos essenciais. Contribua para um futuro mais saudável e solidário!</p>
-            <div class="buttons">
-                <a href="#" class="doe-agora">Doe agora</a>
-                <span>Ou</span>
-                <a href="#" class="preciso-doacao">Preciso de Doação</a>
+            <div class="text-content">
+                <h1>Doe Remédios  Salve Vidas!<br>Faça a diferença na saúde de  quem precisa.</h1>
+                Tem medicamentos que não usa mais?  Doe agora e leve esperança  a quem não tem <br>acesso a tratamentos essenciais.  Contribua para um futuro mais saudável e solidário!</p>
+                <div class="buttons">
+                    <a href="/Tela Cadastro Remédios/cadastroRemedio.html" class="doe-agora">Doe Agora</a>
+                    <span>ou</span>
+                    <a href="/tela2/remedios.html" class="preciso-doacao">Preciso de Doação</a>
+                </div>
             </div>
+            <img src="/imgs/doacao.png" alt="Doação de remédios" class="hero-image">
         </section>
 
-        <section class="image-section">
-            <img src="/imgs/box_person.png" alt="Imagem de pessoa com caixas e remédios">
-        </section>
+
+
     </main>
+    <!-- Seção Sobre -->
+    <section class="sobre">
+        <h2>Mais sobre Vitality</h2>
+        <div class="sobre-items">
+            <div class="item">
+                <img src="/imgs/imgmed.png" alt="Ícone Clínicas">
+                <h3>Clínicas Recomendadas</h3>
+                <p>Clínicas bem avaliadas para seu cuidado.</p>
+            </div>
+            <div class="item">
+                <img src="/imgs/imgdoacao.png" alt="Ícone Doação">
+                <h3>Doação de Remédios</h3>
+                <p>Encontre ou doe para quem precisa.</p>
+            </div>
+            <div class="item">
+                <img src="/imgs/imgmed.png" alt="Ícone Médicos">
+                <h3>Médicos Recomendados</h3>
+                <p>Descubra médicos confiáveis perto de você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Informativa -->
+    <section class="info">
+        <div class="info-content">
+            <h2>Vitality Saúde ao Seu Alcance</h2>
+            <p>A Vitality conecta você ao cuidado que merece. Facilitamos o acesso à saúde de forma prática e solidária.</p>
+            <ul><br>
+                <li>Doar ou receber medicamentos com segurança.</li><br>
+                <li>Encontrar médicos confiáveis próximos a você.</li><br>
+                <li>Localizar clínicas bem avaliadas para um atendimento de qualidade.</li><br>
+                <li>Simplifique sua jornada pela saúde com a Vitality!</li>
+            </ul>
+        </div>
+        <img src="/imgs/box_person.png" alt="Caixas de remédios">
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="exclusive">
                 <h3>Exclusivo</h3>
                 <p>Inscreva-se para ganhar 20% de desconto no frete</p>
-                <input type="email" placeholder="entre com seu melhor email">
+                <input type="email" placeholder="Entre com seu melhor email">
                 <button>Inscrever</button>
             </div>
             <div class="support">
@@ -66,14 +104,25 @@
             </div>
             <div class="app-download">
                 <h3>Download App</h3>
-                <div class="download-container">
-                    <img src="/imgs/Captura " alt="QR Code" class="qr-code">
+                <div class="qr-code">
+                    <img src="/imgs/qr-code.jpeg" alt="QR Code" />
+                  </div>
 
-                </div>
+                  <div class="footer-section-download">
+                  <div class="app-icons">
+                    <img src="/imgs/Google-Play.png" alt="Google Play" />
+                    <img src="/imgs/App-Store.png" alt="App Store" />
+                  </div>
+                  </div>
         </div>
 
     </footer>
     <hr>
     <p class="copyright">© Copyright 2024. All right reserved</p>
+    <script src="cadastroRemedio.js"></script>
+    </body>
+
+  </html>
+
 </body>
 </html>

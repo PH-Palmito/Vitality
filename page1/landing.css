@@ -14,7 +14,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #f0f4fa;
+    background-color: #84C6EB;
     padding: 10px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -81,24 +81,25 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 100px;
+
     background: linear-gradient(180deg, #f0f4fa, #fff);
 }
 
 .hero {
-    max-width: 900px;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: row; /* Alinha texto e imagem horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaço uniforme entre texto e imagem */
+    padding-top: 50px;
+    padding-right: 50px;
+ /* Espaçamento interno */
+    gap: 20px; /* Espaço entre texto e imagem */
+    background: linear-gradient(180deg, #f0f4fa, #fff); /* Fundo com gradiente */
 }
 
 .hero h1 {
-    font-size: 60px;
+    font-size: 48px; /* Tamanho do título */
     font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.hero h2 {
-    font-size: 36px;
     color: #333;
     margin-bottom: 20px;
 }
@@ -106,22 +107,22 @@ main {
 .hero p {
     font-size: 18px;
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .buttons {
     display: flex;
     align-items: center;
+    gap: 10px; /* Espaço entre os botões */
 }
 
 .doe-agora {
     background-color: #007bff;
     color: white;
     padding: 15px 30px;
-    border-radius:50px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 15px;
 }
 
 .preciso-doacao {
@@ -132,13 +133,37 @@ main {
     text-decoration: none;
     font-weight: bold;
 }
+.text-content{
+padding-inline: 30px;
+}
+.hero-image {
+padding-inline: 50px;
+height: 800px;
+    max-width: 800px; /* Limita a largura da imagem */
+    height: auto; /* Mantém proporções */
+    border-radius: 10px; /* Cantos arredondados */
+}
+
+@media (max-width: 1000px) {
+    .hero {
+        flex-direction: column; /* Empilha texto e imagem */
+        text-align: center;
+    }
+
+    .hero-image {
+        max-width: 100%; /* Ajusta largura da imagem */
+    }
+}
 
 span {
     margin-right: 15px;
+
 }
 
 .image-section img {
-    max-width: 500px;
+    max-width: 600px;
+
+
 }
 
 @media (max-width: 900px) {
@@ -183,6 +208,112 @@ nav ul {
 }
 
 
+
+
+/* Seção Sobre */
+.sobre {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #84C6EB;
+
+}
+
+.sobre h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.sobre-items {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sobre-items .item {
+    width: 300px;
+    text-align: center;
+}
+
+.sobre-items .item img {
+
+    margin-bottom: 10px;
+}
+
+.sobre-items .item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.sobre-items .item p {
+    color: #666;
+}
+
+/* Seção Informativa */
+.info {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    flex-direction: row-reverse; /* Inverte a ordem dos elementos */
+}
+
+.info-content {
+
+    height: 500px;
+    background-color: #84C6EB;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info img {
+    width: 50%; /* Ajusta largura proporcional */
+    height: auto;
+    border-radius: 10px;
+}
+.info h2 {
+    font-size: 40px;
+    color: #333;
+    margin: 20px;;
+
+}
+
+.info p {
+    font-size: 25px;
+    color: #666;
+    margin-bottom: 30px;
+}
+.info li {
+    font-size: 30px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.info ul {
+    margin-top: 20px;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.info ul li {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info img {
+        margin-top: 20px;
+    }
+}
 
 /*  ROdape*---------------*/
 footer {
@@ -243,9 +374,8 @@ footer {
     border-radius: 5px;
 }
 
-footer img {
-    width: 100px;
-}
+
+
 
 footer p {
 
@@ -255,7 +385,7 @@ footer p {
 }
 
 hr{
-height: 1px;
+    height: 1px;
 margin: 0;
 background-color:#ffffff00;
 border: none;
@@ -263,9 +393,19 @@ border: none;
 .store-links{
 width: 0px;
 }
+.qr-code img {
+width: 80px;
+margin-right: -200px;
+}
+
+.app-icons img {
+width: 100px;
+margin-top: 10px;
+display: block;
+}
 .copyright{
-    margin: 0;
-    background-color: #333333;
-    color: #ffffffa1;
-    text-align: center;
+margin: 0;
+background-color: #333333;
+color: #ffffffa1;
+text-align: center;
 }

@@ -270,9 +270,8 @@
         border-radius: 5px;
     }
 
-    footer img {
-        width: 100px;
-    }
+
+
 
     footer p {
 
@@ -281,18 +280,28 @@
         color: #aaa;
     }
 
-  hr{
-    height: 1px;
+    hr{
+        height: 1px;
     margin: 0;
     background-color:#ffffff00;
     border: none;
-   }
-   .store-links{
+}
+.store-links{
     width: 0px;
-   }
+}
+.qr-code img {
+    width: 80px;
+    margin-right: -200px;
+}
+
+.app-icons img {
+    width: 100px;
+    margin-top: 10px;
+    display: block;
+}
 .copyright{
-        margin: 0;
-        background-color: #333333;
-        color: #ffffffa1;
-        text-align: center;
-    }
+    margin: 0;
+    background-color: #333333;
+    color: #ffffffa1;
+    text-align: center;
+}
